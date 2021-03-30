@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>seanlindev.springframework</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -42,7 +42,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:Seanlinsanity/SpringBootPetClinic.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>spring-pet-clinic-0.0.2</tag>
     </scm>
 
 </project>
