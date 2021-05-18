@@ -5,7 +5,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "types")
+@Table(name = "petTypes")
 public class PetType extends BaseEntity {
 
     @JoinColumn(name = "name")
