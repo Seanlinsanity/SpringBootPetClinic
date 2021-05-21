@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: seanlindev.springframework.springpetclinic.SpringPetClinicApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.312 s - in seanlindev.springframework.springpetclinic.SpringPetClinicApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.457 s - in seanlindev.springframework.springpetclinic.SpringPetClinicApplicationTests
