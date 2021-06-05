@@ -12,9 +12,14 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "petTypes")
+@Table(name = "types")
 public class PetType extends BaseEntity {
 
     @JoinColumn(name = "name")
     private String name;
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
