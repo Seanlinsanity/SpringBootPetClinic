@@ -15,6 +15,7 @@ import seanlindev.springframework.springpetclinic.services.OwnerService;
 import seanlindev.springframework.springpetclinic.services.PetService;
 import seanlindev.springframework.springpetclinic.services.PetTypeService;
 
+import javax.validation.Valid;
 import java.util.Collection;
 
 @Controller
@@ -57,11 +58,12 @@ public class PetController {
     }
 
     @PostMapping("/pets/new")
-    public String processCreationForm(Owner owner, @Validated Pet pet, BindingResult result, ModelMap model) {
+    public String processCreationForm(Owner owner, @Valid Pet pet, BindingResult result, ModelMap model) {
         if (StringUtils.hasLength(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), true) != null){
             result.rejectValue("name", "duplicate", "already exists");
         }
         owner.getPets().add(pet);
+        pet.setOwner(owner);
         if (result.hasErrors()) {
             model.put("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
@@ -79,13 +81,13 @@ public class PetController {
     }
 
     @PostMapping("/pets/{petId}/edit")
-    public String processUpdateForm(@Validated Pet pet, BindingResult result, Owner owner, Model model) {
+    public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
         if (result.hasErrors()) {
             pet.setOwner(owner);
             model.addAttribute("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
-            owner.getPets().add(pet);
+            pet.setOwner(owner);
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }
